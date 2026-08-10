@@ -6,7 +6,7 @@ A framework-agnostic media SDK built as a pnpm monorepo. Strict layer separation
 
 | Target | Platform | URL |
 |---|---|---|
-| Demo app | Vercel | _link after deploy_ |
+| Demo app | Vercel | https://senior-react-dev-task-headless-medi-ochre.vercel.app |
 | SDK docs (TypeDoc) | GitHub Pages | _link after deploy_ |
 | Component docs (Storybook) | GitHub Pages | _link after deploy_ |
 
