@@ -1,0 +1,24 @@
+{
+  "name": "@headless-media/native",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "description": "React Native wrapper for @headless-media/core. Requires react-native and react-native-video peer deps.",
+  "scripts": {
+    "typecheck": "echo 'Requires RN environment — skipped in web CI'"
+  },
+  "dependencies": {
+    "@headless-media/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-native": ">=0.73.0",
+    "react-native-video": ">=6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-native": { "optional": false },
+    "react-native-video": { "optional": false }
+  }
+}

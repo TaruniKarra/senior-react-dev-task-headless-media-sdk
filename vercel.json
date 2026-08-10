@@ -1,0 +1,9 @@
+{
+  "buildCommand": "pnpm --filter @headless-media/core build && pnpm --filter @headless-media/wrappers build && pnpm --filter app build",
+  "outputDirectory": "apps/app/dist",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

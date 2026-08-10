@@ -1,0 +1,20 @@
+{
+  "entryPointStrategy": "packages",
+  "entryPoints": [
+    "packages/core",
+    "packages/wrappers",
+    "packages/components"
+  ],
+  "out": "docs/sdk",
+  "name": "Headless Media SDK",
+  "readme": "README.md",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "plugin": [],
+  "navigationLinks": {
+    "GitHub": "https://github.com/your-org/headless-media-sdk"
+  },
+  "categorizeByGroup": true,
+  "groupOrder": ["Classes", "Functions", "Interfaces", "Type Aliases", "*"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@headless-media/ui-native",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "description": "Headless React Native UI components — Grid, Lightbox, ReelSwiper. No styles, prop-getter pattern.",
+  "scripts": {
+    "typecheck": "echo 'Requires RN environment — skipped in web CI'"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-native": ">=0.73.0"
+  }
+}
