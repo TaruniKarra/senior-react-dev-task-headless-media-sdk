@@ -75,6 +75,9 @@ importers:
       react:
         specifier: ^18.3.0
         version: 18.3.1
+      storybook:
+        specifier: ^8.3.0
+        version: 8.6.18
       typescript:
         specifier: ^5.5.0
         version: 5.9.3

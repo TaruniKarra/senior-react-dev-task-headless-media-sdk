@@ -9,6 +9,7 @@ build/
 
 # Storybook build
 storybook-static/
+....docscomponents/
 
 # TypeDoc output
 docs/
@@ -38,3 +39,6 @@ pnpm-debug.log*
 
 # Test coverage
 coverage/
+
+.vercel
+.env*
