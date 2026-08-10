@@ -10,6 +10,7 @@ import type { MediaPhoto } from "@headless-media/wrappers";
 import { PhotoGrid } from "./components/PhotoGrid.js";
 import { PhotoLightbox } from "./components/PhotoLightbox.js";
 import { VideoReels } from "./components/VideoReels.js";
+import { AuthPanel } from "./components/AuthPanel.js";
 
 type Tab = "photos" | "videos";
 
@@ -94,6 +95,9 @@ function VideosSection() {
 
 export default function App() {
   const [tab, setTab] = useState<Tab>("photos");
+  const [showAuth, setShowAuth] = useState(false);
+  const [authType, setAuthType] = useState<"none" | "bearer" | "apiKey">("none");
+  const [apiKey, setApiKey] = useState("");
 
   return (
     <ApiProvider>
@@ -102,30 +106,56 @@ export default function App() {
         style={{ background: "linear-gradient(160deg, #07050f 0%, #0f0a1e 50%, #12091c 100%)" }}
       >
         {/* Header */}
-        <header className="sticky top-0 z-40 px-6 py-4 flex items-center justify-between"
+        <header className="sticky top-0 z-40 px-6 py-4"
           style={{ background: "rgba(7,5,15,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(139,92,246,0.12)" }}>
-          <h1
-            className="text-xl font-bold tracking-tight"
-            style={{ background: "linear-gradient(135deg,#a78bfa,#f472b6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-          >
-            Headless Media SDK
-          </h1>
-          <div className="flex gap-1 p-1 rounded-xl" style={{ background: "rgba(139,92,246,0.1)" }}>
-            {(["photos", "videos"] as Tab[]).map((t) => (
+          <div className="flex items-center justify-between">
+            <h1
+              className="text-xl font-bold tracking-tight"
+              style={{ background: "linear-gradient(135deg,#a78bfa,#f472b6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+            >
+              Headless Media SDK
+            </h1>
+            <div className="flex items-center gap-2">
+              <div className="flex gap-1 p-1 rounded-xl" style={{ background: "rgba(139,92,246,0.1)" }}>
+                {(["photos", "videos"] as Tab[]).map((t) => (
+                  <button
+                    key={t}
+                    onClick={() => setTab(t)}
+                    className="px-4 py-1.5 rounded-lg text-xs font-semibold capitalize transition"
+                    style={
+                      tab === t
+                        ? { background: "linear-gradient(135deg,#7c3aed,#db2777)", color: "#fff" }
+                        : { color: "rgba(167,139,250,0.6)" }
+                    }
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
               <button
-                key={t}
-                onClick={() => setTab(t)}
-                className="px-4 py-1.5 rounded-lg text-xs font-semibold capitalize transition"
-                style={
-                  tab === t
-                    ? { background: "linear-gradient(135deg,#7c3aed,#db2777)", color: "#fff" }
-                    : { color: "rgba(167,139,250,0.6)" }
-                }
+                onClick={() => setShowAuth((v) => !v)}
+                title="Auth settings"
+                className="text-base px-3 py-1.5 rounded-lg transition"
+                style={{
+                  background: showAuth ? "rgba(139,92,246,0.25)" : "rgba(139,92,246,0.08)",
+                  color: showAuth ? "#a78bfa" : "rgba(167,139,250,0.5)",
+                  border: "1px solid rgba(139,92,246,0.2)",
+                }}
               >
-                {t}
+                ⚙
               </button>
-            ))}
+            </div>
           </div>
+          {showAuth && (
+            <div className="mt-3">
+              <AuthPanel
+                authType={authType}
+                apiKey={apiKey}
+                onAuthTypeChange={setAuthType}
+                onApiKeyChange={setApiKey}
+              />
+            </div>
+          )}
         </header>
 
         {/* Content */}
